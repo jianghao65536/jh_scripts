@@ -1,0 +1,33 @@
+#!/usr/bin/env bpftrace
+
+t:syscalls:sys_enter_execve {
+    $task = (struct task_struct*) curtask;
+    $parent = $task->real_parent;
+    $ppid = $parent->pid;
+    $pcomm = $parent->comm;
+
+    printf("=======\n");
+    printf("ppid: %d pcomm: %s\n", $ppid, $pcomm);
+    if(args->argv[0] != 0) {
+        printf("pid: %d comm: %s ", pid, str(args->argv[0]));
+        if(args->argv[1] != 0) {
+            printf("%s ", str(args->argv[1]));
+            if(args->argv[2] != 0) {
+                printf("%s ", str(args->argv[2]));
+                if(args->argv[3] != 0) {
+                    printf("%s ", str(args->argv[3]));
+                    if(args->argv[4] != 0) {
+                        printf("%s ", str(args->argv[4]));
+                        if(args->argv[5] != 0) {
+                            printf("%s ", str(args->argv[5]));
+                            if(args->argv[6] != 0) {
+                                printf("%s ", str(args->argv[6]));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    printf("\n");
+}
