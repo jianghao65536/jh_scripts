@@ -22,6 +22,27 @@ t:syscalls:sys_enter_execve {
                             printf("%s ", str(args->argv[5]));
                             if(args->argv[6] != 0) {
                                 printf("%s ", str(args->argv[6]));
+                                if(args->argv[7] != 0) {
+                                    printf("%s ", str(args->argv[7]));
+                                    if(args->argv[8] != 0) {
+                                        printf("%s ", str(args->argv[8]));
+                                        if(args->argv[9] != 0) {
+                                            printf("%s ", str(args->argv[9]));
+                                            if(args->argv[10] != 0) {
+                                                printf("%s ", str(args->argv[10]));
+                                                if(args->argv[11] != 0) {
+                                                    printf("%s ", str(args->argv[11]));
+                                                    if(args->argv[12] != 0) {
+                                                        printf("%s ", str(args->argv[12]));
+                                                        if(args->argv[13] != 0) {
+                                                            printf("%s ", str(args->argv[13]));
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }                
+                                    }
+                                }                                
                             }
                         }
                     }
